@@ -26,6 +26,11 @@
       top:8rem;
       left: 75%;
     }
+    .save-img{
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: lightgreen;
+    }
   </style>
   <script src="dist/jquery-1.10.1.min.js"></script>
   <script src="dist/poster.js"></script>
@@ -35,8 +40,9 @@
 <body>
   <div class="container">
     <div class="poster-en" id="poster"></div>
-      <div class="back" @click="cancel"></div>
+      <div class="back"></div>
       <div class="save">
+          <!-- <div class="save-img"></div>  id="download" onclick="createDownload()" -->
         <a download="poster.jpg" class="btn-download">
           <div class="save-img"></div>
           <p class="save-desc">生成并分享</p>
@@ -83,8 +89,29 @@
       const $btn = document.querySelector(".btn-download");
       const $img = container.querySelector("img");
       $btn.setAttribute("href", $img.getAttribute("src"));
+      // console.log('tst',$img.getAttribute("src"))
       // alert($btn);
     }
+    // // 扩展API加载完毕后调用onPlusReady回调函数 
+    // document.addEventListener("plusready", onPlusReady, false);
+    // var r = null; 
+    // // 扩展API加载完毕，现在可以正常调用扩展API 
+    // function onPlusReady() {
+    // }
+    // // 创建下载任务
+    // function createDownload() {
+    //   var dtask = plus.downloader.createDownload("http://www.abc.com/a.doc", {}, function(d, status){
+    //     // 下载完成
+    //     if(status == 200){ 
+    //       alert("Download success: " + d.filename);
+    //     } else {
+    //       alert("Download failed: " + status); 
+    //     }  
+    //   });
+    //   //dtask.addEventListener("statechanged", onStateChanged, false);
+    //   dtask.start(); 
+    // }
+
   </script>
 </body>
 
