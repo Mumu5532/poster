@@ -40,14 +40,7 @@
 <body>
   <div class="container">
     <div class="poster-en" id="poster"></div>
-      <div class="back"></div>
-      <div class="save">
-          <!-- <div class="save-img"></div>  id="download" onclick="createDownload()" -->
-        <a download="poster.jpg" class="btn-download">
-          <div class="save-img"></div>
-          <p class="save-desc">生成并分享</p>
-        </a>
-      </div>
+     
   </div>
 
   <script>
@@ -79,8 +72,7 @@
           ltwo: "长按识别二维码",
           // "../../../static/js/timg.jpg"
           codeimg: 'https://vrimages.zavrs.com/ad491b88-54bb-46e6-b920-4d5a29465f2d.png',
-          description: "",
-          callback: this.download
+          description: ""
         });
 
     function download(container)
