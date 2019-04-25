@@ -5,31 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=750, user-scalable=no">
+  <meta name="viewport" content="width=750, user-scalable=no">
   <title>canvas</title>
   <style>
     body {
       padding: 0;
       margin: 0;
     }
-    .poster-en{
-      background-color: lightcoral;
-    }
-    .poster-en img{
+    .poster-en img {
       width: 100%;
-      height: auto;
-      background-color: lightcoral;
+      height: 100%;
     }
-    .save{
-      font-size: 0.3rem;
+
+    .save {
+      width: 62.9%;
+      height: 0.9rem;
+      /* line-height: 0.9rem; */
+      border-radius: 10px;
+      background-color: #000000;
+      opacity: 0.5;
+      text-align: center;
       position: fixed;
-      top:8rem;
-      left: 75%;
+      top: 50%;
+      left: 50%;
+      margin-left: -31.5%;
+      margin-top: -0.45rem;
     }
-    .save-img{
-      width: 0.5rem;
-      height: 0.5rem;
-      background-color: lightgreen;
+
+    .save-desc {
+      color: #ffffff;
+      font-size: 0.3rem;
     }
   </style>
   <script src="dist/jquery-1.10.1.min.js"></script>
@@ -40,70 +45,43 @@
 <body>
   <div class="container">
     <div class="poster-en" id="poster"></div>
-     
+    <div class="save">
+      <!-- <div class="save-img"></div> -->
+      <p class="save-desc">长按保存图片，即刻分享</p>
+  </div>
   </div>
 
   <script>
-    $('.poster-en').css('height',$(window).height())
-    $('.poster-en').css('width',$(window).width())
+    $('.poster-en').css('height', $(window).height())
+    $('.poster-en').css('width', $(window).width())
     poster.init({
-          // "../../../static/js/timg.jpg" this.allArr[0].wxShareImg
-          banner: 'https://vrimages.zavrs.com/panos/979.tiles/thumb.jpg',
-          selector: ".poster-en",
-          title: '宏盛传媒',
-          titleStyle: {
-            font: "500 32px Arial",
-            color: "#282828",
-            lineHeight: 0.4
-          },
-          content:'此作品太棒了，无法找到合...',
-          // "../../../static/js/dog.jpg"
-          contimg: 'https://vrimages.zavrs.com/Fqq5Ate6EcfWcgfZ0GVWtKx2dYUT',
-          contentStyle: {
-            font: "24px Arial",
-            lineHeight: 0.7,
-            position: "left",
-            color: "#686868"
-          },
-          scenetitle: '博客小镇',
-          scenedesc: '综合,农林,医科,艺术,双一流',
-          logo: "Zavrs",
-          lone: "AVR内容聚合分发平台",
-          ltwo: "长按识别二维码",
-          // "../../../static/js/timg.jpg"
-          codeimg: 'https://vrimages.zavrs.com/ad491b88-54bb-46e6-b920-4d5a29465f2d.png',
-          description: ""
-        });
-
-    function download(container)
-    {
-      // alert(container);
-      const $btn = document.querySelector(".btn-download");
-      const $img = container.querySelector("img");
-      $btn.setAttribute("href", $img.getAttribute("src"));
-      // console.log('tst',$img.getAttribute("src"))
-      // alert($btn);
-    }
-    // // 扩展API加载完毕后调用onPlusReady回调函数 
-    // document.addEventListener("plusready", onPlusReady, false);
-    // var r = null; 
-    // // 扩展API加载完毕，现在可以正常调用扩展API 
-    // function onPlusReady() {
-    // }
-    // // 创建下载任务
-    // function createDownload() {
-    //   var dtask = plus.downloader.createDownload("http://www.abc.com/a.doc", {}, function(d, status){
-    //     // 下载完成
-    //     if(status == 200){ 
-    //       alert("Download success: " + d.filename);
-    //     } else {
-    //       alert("Download failed: " + status); 
-    //     }  
-    //   });
-    //   //dtask.addEventListener("statechanged", onStateChanged, false);
-    //   dtask.start(); 
-    // }
-
+      // "../../../static/js/timg.jpg" this.allArr[0].wxShareImg
+      banner: 'https://vrimages.zavrs.com/O9IGOATS3M4QBYW98D2B1551928844000.jpg',
+      selector: ".poster-en",
+      title: '宏盛传媒',
+      titleStyle: {
+        font: "500 32px Arial",
+        color: "#282828",
+        lineHeight: 0.4
+      },
+      content: '此作品太棒了，无法找到合...',
+      // "../../../static/js/dog.jpg"
+      contimg: 'https://vrimages.zavrs.com/Fqq5Ate6EcfWcgfZ0GVWtKx2dYUT',
+      contentStyle: {
+        font: "24px Arial",
+        lineHeight: 0.7,
+        position: "left",
+        color: "#686868"
+      },
+      scenetitle: '博客小镇',
+      scenedesc: '综合,农林,医科,艺术,双一流',
+      logo: "Zavrs",
+      lone: "AVR内容聚合分发平台",
+      ltwo: "长按识别二维码",
+      // "../../../static/js/timg.jpg"
+      codeimg: 'https://vrimages.zavrs.com/ad491b88-54bb-46e6-b920-4d5a29465f2d.png',
+      description: ""
+    });
   </script>
 </body>
 
