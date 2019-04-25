@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=750, user-scalable=no">
+  <title>canvas</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .poster-en{
+      background-color: lightcoral;
+    }
+    .poster-en img{
+      width: 100%;
+      height: auto;
+      background-color: lightcoral;
+    }
+    .save{
+      font-size: 0.3rem;
+      position: fixed;
+      top:8rem;
+      left: 75%;
+    }
+  </style>
+  <script src="dist/jquery-1.10.1.min.js"></script>
+  <script src="dist/poster.js"></script>
+  <script src="dist/rem.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="poster-en" id="poster"></div>
+      <div class="back" @click="cancel"></div>
+      <div class="save">
+        <a download="poster.jpg" class="btn-download">
+          <div class="save-img"></div>
+          <p class="save-desc">生成并分享</p>
+        </a>
+      </div>
+  </div>
+
+  <script>
+    $('.poster-en').css('height',$(window).height())
+    $('.poster-en').css('width',$(window).width())
+    poster.init({
+          // "../../../static/js/timg.jpg" this.allArr[0].wxShareImg
+          banner: 'https://vrimages.zavrs.com/panos/979.tiles/thumb.jpg',
+          selector: ".poster-en",
+          title: '宏盛传媒',
+          titleStyle: {
+            font: "500 32px Arial",
+            color: "#282828",
+            lineHeight: 0.4
+          },
+          content:'此作品太棒了，无法找到合...',
+          // "../../../static/js/dog.jpg"
+          contimg: 'https://vrimages.zavrs.com/Fqq5Ate6EcfWcgfZ0GVWtKx2dYUT',
+          contentStyle: {
+            font: "24px Arial",
+            lineHeight: 0.7,
+            position: "left",
+            color: "#686868"
+          },
+          scenetitle: '博客小镇',
+          scenedesc: '综合,农林,医科,艺术,双一流',
+          logo: "Zavrs",
+          lone: "AVR内容聚合分发平台",
+          ltwo: "长按识别二维码",
+          // "../../../static/js/timg.jpg"
+          codeimg: 'https://vrimages.zavrs.com/ad491b88-54bb-46e6-b920-4d5a29465f2d.png',
+          description: "",
+          callback: this.download
+        });
+
+    function download(container)
+    {
+      const $btn = document.querySelector(".btn-download");
+      const $img = container.querySelector("img");
+      $btn.setAttribute("href", $img.getAttribute("src"));
+    }
+  </script>
+</body>
+
+</html>
